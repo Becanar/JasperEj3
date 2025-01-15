@@ -4,61 +4,62 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benat.cano.jasperej3.controller.SuperController">
+<VBox prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benat.cano.jasperej3.controller.SuperController">
    <children>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="200.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Productos">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0">
+               <content>
+                  <AnchorPane>
                      <children>
-                        <FlowPane alignment="CENTER" prefHeight="175.0" prefWidth="600.0">
-                           <children>
-                              <Button fx:id="btProductos" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#infoProductos" text="Ver Informe" />
-                           </children>
-                        </FlowPane>
-                     </children></AnchorPane>
-              </content>
+                        <Button fx:id="btProductos" layoutX="146.0" layoutY="73.0" onAction="#infoProductos" text="Ver Informe" />
+                     </children>
+                     <AnchorPane.topAnchor>50.0</AnchorPane.topAnchor>
+                     <AnchorPane.bottomAnchor>50.0</AnchorPane.bottomAnchor>
+                     <AnchorPane.leftAnchor>150.0</AnchorPane.leftAnchor>
+                     <AnchorPane.rightAnchor>150.0</AnchorPane.rightAnchor>
+                  </AnchorPane>
+               </content>
             </Tab>
             <Tab text="Secciones">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <content>
+                  <AnchorPane>
                      <children>
-                        <FlowPane alignment="CENTER" prefHeight="175.0" prefWidth="600.0">
-                           <children>
-                              <Button fx:id="btSecciones" mnemonicParsing="false" onAction="#infoSecciones" text="Ver Informe" />
-                           </children>
-                        </FlowPane>
+                        <Button fx:id="btSecciones" layoutX="146.0" layoutY="73.0" onAction="#infoSecciones" text="Ver Informe" />
                      </children>
+                     <AnchorPane.topAnchor>50.0</AnchorPane.topAnchor>
+                     <AnchorPane.bottomAnchor>50.0</AnchorPane.bottomAnchor>
+                     <AnchorPane.leftAnchor>150.0</AnchorPane.leftAnchor>
+                     <AnchorPane.rightAnchor>150.0</AnchorPane.rightAnchor>
                   </AnchorPane>
-              </content>
+               </content>
             </Tab>
             <Tab text="Tabla productos">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane>
                      <children>
-                        <FlowPane alignment="CENTER" prefHeight="175.0" prefWidth="600.0">
-                           <children>
-                              <Button fx:id="btTabProductos" mnemonicParsing="false" onAction="#infoTabProductos" text="Ver Informe" />
-                           </children>
-                        </FlowPane>
+                        <Button fx:id="btTabProductos" layoutX="146.0" layoutY="73.0" onAction="#infoTabProductos" text="Ver Informe" />
                      </children>
+                     <AnchorPane.topAnchor>50.0</AnchorPane.topAnchor>
+                     <AnchorPane.bottomAnchor>50.0</AnchorPane.bottomAnchor>
+                     <AnchorPane.leftAnchor>150.0</AnchorPane.leftAnchor>
+                     <AnchorPane.rightAnchor>150.0</AnchorPane.rightAnchor>
                   </AnchorPane>
                </content>
             </Tab>
             <Tab text="Gráficos">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane>
                      <children>
-                        <FlowPane alignment="CENTER" prefHeight="175.0" prefWidth="600.0">
-                           <children>
-                              <Button fx:id="btGraficos" mnemonicParsing="false" onAction="#infoGraficos" text="Ver Informe" />
-                           </children>
-                        </FlowPane>
-                     </children></AnchorPane>
+                        <Button fx:id="btGraficos" layoutX="146.0" layoutY="73.0" onAction="#infoGraficos" text="Ver Informe" />
+                     </children>
+                     <AnchorPane.topAnchor>50.0</AnchorPane.topAnchor>
+                     <AnchorPane.bottomAnchor>50.0</AnchorPane.bottomAnchor>
+                     <AnchorPane.leftAnchor>150.0</AnchorPane.leftAnchor>
+                     <AnchorPane.rightAnchor>150.0</AnchorPane.rightAnchor>
+                  </AnchorPane>
                </content>
             </Tab>
          </tabs>
