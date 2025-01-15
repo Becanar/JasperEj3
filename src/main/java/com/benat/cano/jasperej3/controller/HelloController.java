@@ -1,4 +1,4 @@
-package com.benat.cano.jasperej3;
+package com.benat.cano.jasperej3.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

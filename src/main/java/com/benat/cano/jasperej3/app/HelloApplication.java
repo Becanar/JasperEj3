@@ -1,4 +1,4 @@
-package com.benat.cano.jasperej3;
+package com.benat.cano.jasperej3.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
