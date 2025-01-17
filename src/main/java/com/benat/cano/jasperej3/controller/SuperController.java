@@ -49,7 +49,7 @@ public class SuperController {
 
     @FXML
     void infoSecciones(ActionEvent event) {
-
+        informe("secciones.jasper");
     }
 
     @FXML

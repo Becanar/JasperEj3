@@ -1,0 +1,146 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="secciones" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="secciones"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle mode="Opaque" backcolor="#F0EFEF">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<parameter name="IMAGE_PATH" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[SELECT p.codigo AS pcodigo,
+       p.nombre AS pnombre,
+       p.precio,
+       p.stock,
+       p.seccion,
+       s.nombre AS snombre
+FROM supermercado.producto p,
+     supermercado.seccion s
+WHERE p.seccion = s.codigo
+
+]]></query>
+	<field name="pnombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="pnombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
+	</field>
+	<field name="precio" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.name" value="precio"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
+	</field>
+	<field name="stock" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="stock"/>
+		<property name="com.jaspersoft.studio.field.label" value="stock"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
+	</field>
+	<field name="seccion" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="seccion"/>
+		<property name="com.jaspersoft.studio.field.label" value="seccion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
+	</field>
+	<field name="snombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="snombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="seccion"/>
+	</field>
+	<group name="Group1">
+		<expression><![CDATA[$F{snombre}]]></expression>
+		<groupHeader>
+			<band height="37">
+				<element kind="frame" uuid="0a5fc4ac-2e39-4b7a-8f96-59f8eb2df66d" mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#000000">
+					<element kind="textField" uuid="4fbebfd3-a184-45af-b7d9-5c3faaf087b5" x="2" y="0" width="479" height="24" forecolor="#FFFFFF" textAdjust="StretchHeight" printRepeatedValues="false" bold="false" style="SubTitle">
+						<expression><![CDATA[$F{snombre}]]></expression>
+					</element>
+				</element>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="132" splitType="Stretch">
+		<element kind="frame" uuid="6c6ca4e1-17cd-4913-93d6-5e670ea9ae8a" mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000">
+			<element kind="staticText" uuid="a2a2cac8-5a7d-4487-8c54-dab235ce4e21" x="10" y="0" width="370" height="66" bold="false" style="Title">
+				<text><![CDATA[SuperWomble]]></text>
+			</element>
+			<element kind="staticText" uuid="8978eac3-c578-41c9-837e-48d2b0184642" x="157" y="66" width="249" height="29" fontSize="18.0" bold="false" style="SubTitle">
+				<text><![CDATA[Fueros 14, 01200 Agurain, Araba]]></text>
+			</element>
+		</element>
+		<element kind="frame" uuid="e3c14156-5b51-4201-918b-97fdc012e5d4" mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000">
+			<element kind="textField" uuid="5c3301e7-a737-4c59-8a2f-a6c79fd1adb8" x="300" y="6" width="144" height="20" forecolor="#FFFFFF" fontSize="12.0" pattern="EEEEE dd MMMMM yyyy" hTextAlign="Right">
+				<expression><![CDATA[new java.util.Date()]]></expression>
+			</element>
+		</element>
+		<element kind="image" uuid="1423d083-8bc5-4d28-a7f9-14cc183dbd35" x="456" y="0" width="99" height="132">
+			<expression><![CDATA[$P{IMAGE_PATH}]]></expression>
+		</element>
+	</title>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="25" splitType="Stretch">
+		<element kind="staticText" uuid="530762b8-e155-4858-a7f3-93acd5da23dc" x="0" y="7" width="138" height="18" forecolor="#000000" bold="true" style="Column header">
+			<text><![CDATA[PRODUCTO]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7775307f-891d-44f3-9704-14eb7481c153"/>
+		</element>
+		<element kind="staticText" uuid="72f9a4b8-655e-4e26-84fd-3f8d6d3c165c" x="138" y="7" width="138" height="18" forecolor="#000000" bold="true" hTextAlign="Right" style="Column header">
+			<text><![CDATA[STOCK]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01bb5ebe-967b-426b-9b2f-ea9454562619"/>
+		</element>
+		<element kind="staticText" uuid="d0357b50-0d2a-4959-a52a-02cc8cde3b6c" x="276" y="7" width="138" height="18" forecolor="#000000" bold="true" hTextAlign="Right" style="Column header">
+			<text><![CDATA[PRECIO SIN IVA]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c4d8490c-1170-4cca-85b6-5e05599d8d71"/>
+		</element>
+		<element kind="staticText" uuid="5ff7a158-096d-468a-a2f7-61b8a81f908a" x="414" y="7" width="138" height="18" forecolor="#000000" bold="true" hTextAlign="Right" style="Column header">
+			<text><![CDATA[PRECIO FINAL]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c7babb4c-498b-461b-b97a-04674a739698"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<element kind="frame" uuid="b50221b5-8254-440b-8c6f-1f0b138c9259" mode="Opaque" x="0" y="0" width="555" height="18" style="Row">
+				<element kind="textField" uuid="98ac580e-be8f-4d57-bd12-cba551428cb2" positionType="Float" x="0" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" style="Detail">
+					<expression><![CDATA[$F{pnombre}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7775307f-891d-44f3-9704-14eb7481c153"/>
+				</element>
+				<element kind="textField" uuid="eef70449-2c82-4345-bc08-1b4e3326e6fc" positionType="Float" x="138" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Right" style="Detail">
+					<expression><![CDATA[$F{stock}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="01bb5ebe-967b-426b-9b2f-ea9454562619"/>
+				</element>
+				<element kind="textField" uuid="d46b60a4-519a-4410-ae46-4ea13dd1b465" positionType="Float" x="276" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Right" style="Detail">
+					<expression><![CDATA[$F{precio}]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c4d8490c-1170-4cca-85b6-5e05599d8d71"/>
+				</element>
+				<element kind="textField" uuid="f378fe61-1ab6-498b-bf29-00a9e158b410" positionType="Float" x="414" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Right" style="Detail">
+					<expression><![CDATA[String.format("%.2f", 0.21* $F{precio}) +$F{precio}+ "€"
+]]></expression>
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c7babb4c-498b-461b-b97a-04674a739698"/>
+				</element>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="7" splitType="Stretch">
+		<element kind="line" uuid="1133a906-5b71-476e-9f3e-bc97c97058c1" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1">
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</element>
+	</columnFooter>
+	<pageFooter height="25" splitType="Stretch">
+		<element kind="frame" uuid="729c3539-f946-4d0e-a0a7-bda2815ea1b0" mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000">
+			<element kind="textField" uuid="4834e99c-7f6c-485a-b098-50e5187f2ab4" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" fontSize="10.0" evaluationTime="Report" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+			</element>
+			<element kind="textField" uuid="9825b46e-76f1-469a-abb8-a1cc27aad685" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" fontSize="10.0" bold="false" hTextAlign="Right" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+			</element>
+			<element kind="textField" uuid="137d38c7-1a83-4fc5-b156-9d5f1b1a0ddc" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" fontSize="10.0" pattern="EEEEE dd MMMMM yyyy" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[new java.util.Date()]]></expression>
+			</element>
+		</element>
+	</pageFooter>
+	<summary splitType="Stretch"/>
+</jasperReport>
