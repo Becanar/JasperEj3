@@ -1,7 +1,7 @@
 <!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
 <jasperReport name="productos" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="productos"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="grafico"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
@@ -12,7 +12,7 @@
 		</conditionalStyle>
 	</style>
 	<parameter name="IMAGE_PATH" class="java.lang.String"/>
-	<query language="SQL"><![CDATA[select nombre,stock from producto]]></query>
+	<query language="SQL"><![CDATA[select nombre,precio,stock from producto]]></query>
 	<field name="nombre" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
 		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
@@ -23,7 +23,19 @@
 		<property name="com.jaspersoft.studio.field.label" value="stock"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
 	</field>
-	<background splitType="Stretch"/>
+	<background height="10" splitType="Stretch">
+		<element kind="frame" uuid="86048e6d-c166-488d-97ea-1e2e83867330" mode="Opaque" x="0" y="-14" width="555" height="24" forecolor="#D0B48E" backcolor="#000000">
+			<element kind="textField" uuid="8002836b-c4d8-4cd9-bfcd-86f372fc9b78" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" fontSize="10.0" evaluationTime="Report" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+			</element>
+			<element kind="textField" uuid="a2789472-28ba-47bd-a046-c1c50956dbb2" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" fontSize="10.0" bold="false" hTextAlign="Right" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+			</element>
+			<element kind="textField" uuid="bbbde937-76a6-40ff-9a6f-e403174298b5" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" fontSize="10.0" pattern="EEEEE dd MMMMM yyyy" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[new java.util.Date()]]></expression>
+			</element>
+		</element>
+	</background>
 	<title height="132" splitType="Stretch">
 		<element kind="image" uuid="97705585-a0b5-4ec7-86f3-ae10c220e6af" x="456" y="0" width="99" height="132">
 			<expression><![CDATA[$P{IMAGE_PATH}]]></expression>
@@ -43,40 +55,24 @@
 		</element>
 	</title>
 	<pageHeader splitType="Stretch"/>
-	<detail>
-		<band height="334" splitType="Stretch">
-			<element kind="chart" chartType="bar" uuid="50f851ee-5f2c-46ec-b0a0-3f354c705e32" x="0" y="0" width="553" height="334" evaluationTime="Report" linkType="None" linkTarget="Self" legendColor="#030303" theme="aegean">
-				<dataset kind="category">
-					<series>
-						<seriesExpression><![CDATA["STOCK"]]></seriesExpression>
-						<categoryExpression><![CDATA[$F{nombre}]]></categoryExpression>
-						<valueExpression><![CDATA[$F{stock}]]></valueExpression>
-						<itemHyperlink linkType="None" linkTarget="Self"/>
-					</series>
-				</dataset>
-				<plot categoryAxisLabelColor="#000000" categoryAxisTickLabelColor="#000000" categoryAxisLineColor="#000000" valueAxisLabelColor="#000000" valueAxisTickLabelColor="#000000" valueAxisLineColor="#000000">
-					<itemLabel/>
-				</plot>
-			</element>
-		</band>
-	</detail>
 	<columnFooter height="7" splitType="Stretch">
 		<element kind="line" uuid="1133a906-5b71-476e-9f3e-bc97c97058c1" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1">
 			<pen lineWidth="0.5" lineColor="#999999"/>
 		</element>
 	</columnFooter>
-	<pageFooter height="25" splitType="Stretch">
-		<element kind="frame" uuid="729c3539-f946-4d0e-a0a7-bda2815ea1b0" mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000">
-			<element kind="textField" uuid="4834e99c-7f6c-485a-b098-50e5187f2ab4" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" fontSize="10.0" evaluationTime="Report" bold="false" vTextAlign="Middle" style="Column header">
-				<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
-			</element>
-			<element kind="textField" uuid="9825b46e-76f1-469a-abb8-a1cc27aad685" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" fontSize="10.0" bold="false" hTextAlign="Right" vTextAlign="Middle" style="Column header">
-				<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
-			</element>
-			<element kind="textField" uuid="137d38c7-1a83-4fc5-b156-9d5f1b1a0ddc" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" fontSize="10.0" pattern="EEEEE dd MMMMM yyyy" bold="false" vTextAlign="Middle" style="Column header">
-				<expression><![CDATA[new java.util.Date()]]></expression>
-			</element>
+	<summary height="344" splitType="Stretch">
+		<element kind="chart" chartType="bar" uuid="bef05953-1f0c-449f-8bdd-a7a414603fab" x="0" y="0" width="555" height="308" evaluationTime="Report">
+			<dataset kind="category">
+				<series>
+					<seriesExpression><![CDATA[$F{nombre}]]></seriesExpression>
+					<categoryExpression><![CDATA[""]]></categoryExpression>
+					<valueExpression><![CDATA[$F{stock}]]></valueExpression>
+					<labelExpression><![CDATA[$F{nombre}]]></labelExpression>
+				</series>
+			</dataset>
+			<plot categoryAxisLabelColor="#000000" categoryAxisTickLabelColor="#000000" categoryAxisLineColor="#000000" valueAxisLabelColor="#000000" valueAxisTickLabelColor="#000000" valueAxisLineColor="#000000">
+				<itemLabel/>
+			</plot>
 		</element>
-	</pageFooter>
-	<summary splitType="Stretch"/>
+	</summary>
 </jasperReport>
