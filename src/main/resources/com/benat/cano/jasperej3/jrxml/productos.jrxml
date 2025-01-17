@@ -49,13 +49,13 @@
 	</title>
 	<pageHeader splitType="Stretch"/>
 	<columnHeader height="30" splitType="Stretch">
-		<element kind="staticText" uuid="ca998993-ab2b-4c1d-a3ea-2953b1c61bd9" x="138" y="7" width="138" height="18" forecolor="#000000" bold="true" style="Column header">
+		<element kind="staticText" uuid="ca998993-ab2b-4c1d-a3ea-2953b1c61bd9" x="138" y="7" width="138" height="18" forecolor="#000000" bold="true" hTextAlign="Right" style="Column header">
 			<text><![CDATA[PRECIO UD.]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="907e61fc-e760-432d-89a4-3bd1beffe69c"/>
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 		</element>
-		<element kind="staticText" uuid="feed07f9-b5f9-4efb-9894-2f9ff7bd64db" x="276" y="7" width="138" height="18" forecolor="#000000" bold="true" style="Column header">
+		<element kind="staticText" uuid="feed07f9-b5f9-4efb-9894-2f9ff7bd64db" x="276" y="7" width="138" height="18" forecolor="#000000" bold="true" hTextAlign="Right" style="Column header">
 			<text><![CDATA[STOCK]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e7d7375-f164-4f61-8511-c703b2678401"/>
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -68,7 +68,7 @@
 			<property name="com.jaspersoft.studio.unit.y" value="px"/>
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="staticText" uuid="c8819b24-eb2f-44a8-9ef5-f3d0bb8c7a27" x="414" y="7" width="138" height="18" forecolor="#000000" bold="true" style="Column header">
+		<element kind="staticText" uuid="c8819b24-eb2f-44a8-9ef5-f3d0bb8c7a27" x="414" y="7" width="138" height="18" forecolor="#000000" bold="true" hTextAlign="Right" style="Column header">
 			<text><![CDATA[TOTAL]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e7d7375-f164-4f61-8511-c703b2678401"/>
 			<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -84,20 +84,21 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7204e31-c11b-42ca-b149-ba9b722563ad"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</element>
-				<element kind="textField" uuid="32ed6ab8-e43a-4afe-91aa-8e19a83305ef" positionType="Float" x="138" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" style="Detail">
+				<element kind="textField" uuid="32ed6ab8-e43a-4afe-91aa-8e19a83305ef" positionType="Float" x="138" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Right" style="Detail">
 					<expression><![CDATA[$F{precio}+"€"]]></expression>
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="907e61fc-e760-432d-89a4-3bd1beffe69c"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</element>
-				<element kind="textField" uuid="03209fdb-5332-46e5-955b-ad991225b43e" positionType="Float" x="276" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" style="Detail">
+				<element kind="textField" uuid="03209fdb-5332-46e5-955b-ad991225b43e" positionType="Float" x="276" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Right" style="Detail">
 					<expression><![CDATA[$F{stock}]]></expression>
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e7d7375-f164-4f61-8511-c703b2678401"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</element>
-				<element kind="textField" uuid="2f552d21-6dd4-4d52-a1aa-6320b4604fef" positionType="Float" x="414" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" style="Detail">
-					<expression><![CDATA[($F{stock}*$F{precio})+"€"]]></expression>
+				<element kind="textField" uuid="2f552d21-6dd4-4d52-a1aa-6320b4604fef" positionType="Float" x="414" y="0" width="138" height="18" fontSize="14.0" textAdjust="StretchHeight" hTextAlign="Right" style="Detail">
+					<expression><![CDATA[String.format("%.2f", $F{stock} * $F{precio}) + "€"
+]]></expression>
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e7d7375-f164-4f61-8511-c703b2678401"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
