@@ -54,7 +54,7 @@ public class SuperController {
 
     @FXML
     void infoTabProductos(ActionEvent event) {
-
+        informe("tabla.jasper");
     }
 
     private void informe(String jasper){
