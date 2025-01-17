@@ -39,7 +39,7 @@ public class SuperController {
 
     @FXML
     void infoGraficos(ActionEvent event) {
-
+        informe("grafico.jasper");
     }
 
     @FXML
