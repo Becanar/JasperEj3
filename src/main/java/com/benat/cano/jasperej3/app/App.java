@@ -1,6 +1,7 @@
 package com.benat.cano.jasperej3.app;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -28,6 +29,12 @@ public class App extends Application {
         }
         stage.setTitle("SuperWomble");
         stage.setScene(scene);
+        stage.setOnCloseRequest(event -> {
+            // Confirmar si es necesario realizar acciones antes de cerrar
+            System.out.println("Cerrando la aplicación...");
+            Platform.exit(); // Termina la ejecución de JavaFX
+            System.exit(0);  // Asegura que el proceso se detenga completamente
+        });
         stage.show();
     }
 
